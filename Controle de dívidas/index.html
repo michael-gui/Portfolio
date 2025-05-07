@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Dívidas Mensais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Controle de Dívidas Mensais</h1>
+        
+        <div class="form-container">
+            <h2>Adicionar Nova Dívida</h2>
+            <form id="dividaForm">
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="valor">Valor (R$):</label>
+                    <input type="number" id="valor" min="0" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="data">Data de Vencimento:</label>
+                    <input type="date" id="data" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paga">Status:</label>
+                    <select id="paga">
+                        <option value="false">Pendente</option>
+                        <option value="true">Paga</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Adicionar Dívida</button>
+            </form>
+        </div>
+        
+        <div class="dividas-container">
+            <h2>Suas Dívidas</h2>
+            <div class="filtros">
+                <label for="filtroMes">Filtrar por mês:</label>
+                <input type="month" id="filtroMes">
+                <button id="btnLimparFiltro">Limpar Filtro</button>
+            </div>
+            
+            <div id="resumo">
+                <p>Total Pendente: R$ <span id="totalPendente">0.00</span></p>
+                <p>Total Pago: R$ <span id="totalPago">0.00</span></p>
+            </div>
+            
+            <table id="tabelaDividas">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Vencimento</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+                    <!-- As dívidas serão inseridas aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
